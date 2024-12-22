@@ -1,1 +1,1 @@
-Interfacing with a Windows OS through the WINAPI to create a self-hiding window handle that records every keystroke, and is capable of detecting and applying special symbols such as tab and backspace to the text collected.
+C++ app utilizing WinAPI to discreetly log keystorkes
